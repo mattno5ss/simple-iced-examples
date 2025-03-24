@@ -8,7 +8,7 @@ pub fn main() -> iced::Result {
         ..Default::default()
     };
 
-    iced::application("checkbox example", App::update, App::view)
+    iced::application("text input example", App::update, App::view)
         .window(settings)
         .theme(App::theme)
         .run()

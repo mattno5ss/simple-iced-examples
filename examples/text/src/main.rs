@@ -8,7 +8,7 @@ pub fn main() -> iced::Result {
         ..Default::default()
     };
 
-    iced::application("checkbox example", App::update, App::view)
+    iced::application("text example", App::update, App::view)
         .window(settings)
         .theme(App::theme)
         .run()
@@ -21,7 +21,7 @@ struct App {}
 enum Message {}
 
 impl App {
-    fn update(&mut self, message: Message) {}
+    fn update(&mut self, _message: Message) {}
 
     fn view(&self) -> Element<Message> {
         let text = text("Just some text.");
