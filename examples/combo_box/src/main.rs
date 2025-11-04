@@ -51,7 +51,7 @@ impl App {
         }
     }
 
-    fn view(&self) -> Element<Message> {
+    fn view(&self) -> Element<'_, Message> {
         let combo_box = combo_box(
             &self.options,
             "Choose an item...",

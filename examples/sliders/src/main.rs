@@ -38,7 +38,7 @@ impl App {
         }
     }
 
-    fn view(&self) -> Element<Message> {
+    fn view(&self) -> Element<'_, Message> {
         let h_slider = slider(
             0..=255,
             self.h_slider_value,

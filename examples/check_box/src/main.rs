@@ -33,7 +33,7 @@ impl App {
         }
     }
 
-    fn view(&self) -> Element<Message> {
+    fn view(&self) -> Element<'_, Message> {
         let checkbox = checkbox("Check me!", self.is_checked).on_toggle(Message::CheckboxToggled);
         let text = match self.is_checked {
             true => text("Checked!"),

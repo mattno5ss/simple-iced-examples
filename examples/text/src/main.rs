@@ -23,7 +23,7 @@ enum Message {}
 impl App {
     fn update(&mut self, _message: Message) {}
 
-    fn view(&self) -> Element<Message> {
+    fn view(&self) -> Element<'_, Message> {
         let text = text("Just some text.");
 
         container(row![text].spacing(20)).padding(20).into()

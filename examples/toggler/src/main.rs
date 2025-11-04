@@ -33,10 +33,16 @@ impl App {
         }
     }
 
-    fn view(&self) -> Element<Message> {
-        let toggler = toggler(self.is_toggled).label("Toggle me!").on_toggle(Message::TogglerToggled);
-        let text = text(if self.is_toggled { "Toggled!" } else { "Not toggled" });
-        
+    fn view(&self) -> Element<'_, Message> {
+        let toggler = toggler(self.is_toggled)
+            .label("Toggle me!")
+            .on_toggle(Message::TogglerToggled);
+        let text = text(if self.is_toggled {
+            "Toggled!"
+        } else {
+            "Not toggled"
+        });
+
         container(row![toggler, text].align_y(Center).spacing(20))
             .padding(20)
             .into()

@@ -48,7 +48,7 @@ impl App {
         }
     }
 
-    fn view(&self) -> Element<Message> {
+    fn view(&self) -> Element<'_, Message> {
         let progress_bar = progress_bar(0.0..=100.0, self.progress);
         let button = match self.progress_state {
             true => button("Stop").on_press(Message::Stop),
@@ -56,12 +56,9 @@ impl App {
         };
         let percent = text(format!("{}%", self.progress));
 
-        container(column![
-            row![progress_bar, button].spacing(20),
-            row![percent]
-        ].spacing(20))
-        .padding(20)
-        .into()
+        container(column![row![progress_bar, button].spacing(20), row![percent]].spacing(20))
+            .padding(20)
+            .into()
     }
 
     fn subscription(&self) -> Subscription<Message> {

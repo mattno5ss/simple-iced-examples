@@ -33,7 +33,7 @@ impl App {
         }
     }
 
-    fn view(&self) -> Element<Message> {
+    fn view(&self) -> Element<'_, Message> {
         let text_input =
             text_input("Type something...", &self.input).on_input(Message::TextInputChanged);
         let text = text(format!("You entered: {}", &self.input));

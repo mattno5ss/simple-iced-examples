@@ -38,7 +38,7 @@ impl App {
     //
     // Remember the border is defined on containers by passing a closure with the container::Style
     // struct to the style method
-    fn view(&self) -> Element<Message> {
+    fn view(&self) -> Element<'_, Message> {
         let border_1 = container(text("border color using theme.palette()").size(20))
             .padding(10)
             // To use the theme's palette colors, we need to pass the theme to the Style struct in a closure
@@ -63,15 +63,9 @@ impl App {
                 ..container::Style::default()
             });
 
-        container(
-            column![
-                row![border_1], 
-                row![border_2]
-            ]  
-            .spacing(20),
-        )
-        .padding(20)
-        .into()
+        container(column![row![border_1], row![border_2]].spacing(20))
+            .padding(20)
+            .into()
     }
 
     fn theme(&self) -> Theme {

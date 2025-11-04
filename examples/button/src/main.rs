@@ -33,10 +33,10 @@ impl App {
         }
     }
 
-    fn view(&self) -> Element<Message> {
+    fn view(&self) -> Element<'_, Message> {
         let button = button("Press Me!").on_press(Message::ButtonPressed);
         let text = text(format!("Button pressed {} times!", self.pressed_count));
-        
+
         container(row![button, text].align_y(Center).spacing(20))
             .padding(20)
             .into()
