@@ -11,7 +11,6 @@ fn main() -> iced::Result {
         min_size: Some(Size::new(500.0, 500.0)),
         ..Default::default()
     };
-
     iced::application(App::title, App::update, App::view)
         .subscription(App::subscription)
         .window(settings)
@@ -65,9 +64,7 @@ impl App {
     }
     // Function to define the UI of the app
     fn view(&self) -> Element<'_, Message> {
-        container(column![row![], row![]].spacing(20))
-            .padding(20)
-            .into()
+        container(column![row![]].spacing(20)).padding(20).into()
     }
     // Function to define the theme of the app
     fn theme(&self) -> Theme {
