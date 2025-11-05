@@ -43,11 +43,18 @@ impl App {
             0..=255,
             self.h_slider_value,
             Message::HorizontalSliderChanged,
-        );
+        )
+        .height(36);
         let v_slider =
-            vertical_slider(0..=255, self.v_slider_value, Message::VerticalSliderChanged);
-        let h_text = text(format!("{}", self.h_slider_value)).size(20);
-        let v_text = text(format!("{}", self.v_slider_value)).size(20);
+            vertical_slider(0..=255, self.v_slider_value, Message::VerticalSliderChanged).width(36);
+        let h_text = text(format!("{}", self.h_slider_value))
+            .size(20)
+            .width(36)
+            .align_x(Center);
+        let v_text = text(format!("{}", self.v_slider_value))
+            .size(20)
+            .width(36)
+            .align_x(Center);
 
         container(
             column![
@@ -56,11 +63,11 @@ impl App {
             ]
             .spacing(20),
         )
-        .padding(20)
+        .padding(10)
         .into()
     }
 
     fn theme(&self) -> Theme {
-        Theme::GruvboxDark
+        Theme::CatppuccinFrappe
     }
 }
