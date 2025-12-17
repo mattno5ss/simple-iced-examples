@@ -8,8 +8,9 @@ pub fn main() -> iced::Result {
         ..Default::default()
     };
 
-    iced::application("radio buttons example", App::update, App::view)
+    iced::application(App::default, App::update, App::view)
         .window(settings)
+        .title("Radio Buttons Example")
         .theme(App::theme)
         .run()
 }

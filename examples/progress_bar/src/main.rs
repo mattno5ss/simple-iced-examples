@@ -9,9 +9,10 @@ pub fn main() -> iced::Result {
         ..Default::default()
     };
 
-    iced::application("progress bar example", App::update, App::view)
+    iced::application(App::default, App::update, App::view)
         .subscription(App::subscription)
         .window(settings)
+        .title("Progress Bar Example")
         .theme(App::theme)
         .run()
 }

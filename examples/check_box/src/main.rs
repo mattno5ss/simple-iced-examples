@@ -8,8 +8,9 @@ pub fn main() -> iced::Result {
         ..Default::default()
     };
 
-    iced::application("checkbox example", App::update, App::view)
+    iced::application(App::default, App::update, App::view)
         .window(settings)
+        .title("Checkbox Example")
         .theme(App::theme)
         .run()
 }
@@ -34,7 +35,9 @@ impl App {
     }
 
     fn view(&self) -> Element<'_, Message> {
-        let checkbox = checkbox("Check me!", self.is_checked).on_toggle(Message::CheckboxToggled);
+        let checkbox = checkbox(self.is_checked)
+            .label("Check Me!")
+            .on_toggle(Message::CheckboxToggled);
         let text = match self.is_checked {
             true => text("Checked!"),
             false => text("Not checked!"),

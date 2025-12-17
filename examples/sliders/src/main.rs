@@ -8,8 +8,9 @@ pub fn main() -> iced::Result {
         ..Default::default()
     };
 
-    iced::application("sliders example", App::update, App::view)
+    iced::application(App::default, App::update, App::view)
         .window(settings)
+        .title("Sliders Example")
         .theme(App::theme)
         .run()
 }

@@ -11,9 +11,10 @@ fn main() -> iced::Result {
         min_size: Some(Size::new(500.0, 500.0)),
         ..Default::default()
     };
-    iced::application(App::title, App::update, App::view)
+    iced::application(App::default, App::update, App::view)
         .subscription(App::subscription)
         .window(settings)
+        .title(App::title)
         .theme(App::theme)
         .run()
 }

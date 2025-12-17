@@ -9,8 +9,9 @@ fn main() -> iced::Result {
         ..Default::default()
     };
 
-    iced::application("border example", App::update, App::view)
+    iced::application(App::default, App::update, App::view)
         .window(settings)
+        .title("Border Example")
         .theme(App::theme)
         .run()
 }
